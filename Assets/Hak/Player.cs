@@ -4,15 +4,29 @@ using UnityEngine;
 
 public class NewBehaviourScript : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public float movePower;
+    public Rigidbody rigidbody;
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            rigidbody.AddForce(Vector3.left * movePower, ForceMode.Impulse);
+        }
+
+        if (Input.GetKey(KeyCode.RightArrow))
+        {
+            rigidbody.AddForce(Vector3.right * movePower, ForceMode.Impulse);
+        }
+
+        if (Input.GetKey(KeyCode.UpArrow))
+        {
+            rigidbody.AddForce(Vector3.forward * movePower, ForceMode.Impulse);
+        }
+
+        if (Input.GetKey(KeyCode.DownArrow))
+        {
+            rigidbody.AddForce(Vector3.back * movePower, ForceMode.Impulse);
+        }
     }
 }
